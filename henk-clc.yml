@@ -1,0 +1,19 @@
+# Values to change
+# <PASSWORD_HASH>
+
+passwd:
+  users:
+    - name: robbie
+      password_hash: "<PASSWORD_HASH>"
+      home_dir: "/home/robbie"
+      no_create_home: false
+      groups: ["wheel", "docker", "systemd-journal"]
+      no_user_group: false
+
+update:
+  group: "stable"
+
+locksmith:
+  reboot_strategy: "reboot"
+  window_start: "Sun 5:00"
+  window_length: "1h"

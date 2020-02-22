@@ -1,0 +1,24 @@
+# Blacklist all
+/**
+
+# Whitelist allowed
+!/.gitignore
+!/template.env
+!/docker-compose.yml
+!/henk-clc.yml
+!/LICENSE
+!/README.md
+
+!/conf
+!/conf/maintenance/
+!/conf/maintenance/503.html
+
+!/conf/traefik/
+!/conf/traefik/.gitkeep
+
+!/setup/
+!/setup/traefik/
+!/setup/traefik/00-traefik.sh
+!/setup/traefik/10-kh-frontend.sh
+!/setup/traefik/10-kh-frontend-beta.sh
+!/setup/traefik/10-maintenance.sh

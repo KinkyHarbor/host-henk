@@ -61,6 +61,7 @@ services:
       - traefik
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
+      - "NUXT_HOST=0.0.0.0"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"

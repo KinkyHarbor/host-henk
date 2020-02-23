@@ -14,5 +14,5 @@ http:
     KHRedirectToDemo:
       redirectRegex:
         regex: "^https?://(.*\.)?${DEFAULT_DOMAIN}/(.*)"
-        replacement: "https://demo.${DEFAULT_DOMAIN}/\${1}"
+        replacement: "https://demo.${DEFAULT_DOMAIN}/\${2}"
 EOF

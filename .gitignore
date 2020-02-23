@@ -21,6 +21,7 @@
 !/setup/traefik/00-traefik.sh
 !/setup/traefik/10-kh-beta-frontend.sh
 !/setup/traefik/10-kh-common-frontend.sh
+!/setup/traefik/10-kh-demo-backend.sh
 !/setup/traefik/10-kh-demo-frontend.sh
 !/setup/traefik/10-kh-prod-frontend.sh
 !/setup/traefik/10-maintenance.sh

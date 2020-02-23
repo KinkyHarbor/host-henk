@@ -97,6 +97,7 @@ docker-compose up -d
 # Make sure DNS entries exist!
 source ./setup/traefik/00-traefik.sh
 source ./setup/traefik/10-kh-common-frontend.sh
+source ./setup/traefik/10-kh-demo-backend.sh
 source ./setup/traefik/10-kh-demo-frontend.sh
 source ./setup/traefik/10-kh-beta-frontend.sh
 source ./setup/traefik/10-kh-prod-frontend.sh

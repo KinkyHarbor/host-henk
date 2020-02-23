@@ -13,6 +13,6 @@ http:
   middlewares:
     KHRedirectToDemo:
       redirectRegex:
-        regex: "^https?://(.*\.)?${DEFAULT_DOMAIN}/(.*)"
+        regex: "^https?://(.*\\\\.)?${DEFAULT_DOMAIN}/(.*)"
         replacement: "https://demo.${DEFAULT_DOMAIN}/\${2}"
 EOF

@@ -8,13 +8,13 @@ TRAEFIK_DIR=${HOME}/henk/conf/traefik
 source "${ENV_FILE}"
 
 # Kinky Harbor: Frontend
-tee ${TRAEFIK_DIR:?}/kh-frontend-beta.yml <<EOF
+tee ${TRAEFIK_DIR:?}/kh-demo-frontend.yml <<EOF
 http:
   routers:
-    KHFrontendBeta:
+    KHDemoFrontend:
       entryPoints: ["websecure"]
-      rule: Host(\`beta.${DEFAULT_DOMAIN:?}\`)
-      service: kh-frontend-${HOSTNAME:?}@docker
+      rule: Host(\`demo.${DEFAULT_DOMAIN:?}\`)
+      service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
 EOF

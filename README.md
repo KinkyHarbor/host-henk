@@ -1,9 +1,13 @@
 # Henk
+
 Our first pirate crew member!
 
 ## Setup
+
 ### Install Flatcar Container Linux
+
 1. Boot into latest custom image of Arch Linux
+
 ```bash
 # Set a new root password
 passwd
@@ -13,6 +17,7 @@ systemctl start sshd
 ```
 
 2. Connect with a local terminal
+
 ```bash
 # Download latest flatcar-install
 wget -O flatcar-install "https://raw.githubusercontent.com/flatcar-linux/init/flatcar-master/bin/flatcar-install"
@@ -42,7 +47,9 @@ reboot
 ```
 
 ### Configure SSH client
+
 Append following lines to `~/.ssh/config`
+
 ```
 Host henk
     HostName henk.kinkyharbor.com
@@ -51,6 +58,7 @@ Host henk
 ```
 
 ### Configure Flatcar
+
 ```bash
 # Disable root and core user
 sudo passwd -ld root
@@ -67,9 +75,11 @@ sudo mkdir -p /opt/bin
 ```
 
 ### Docker Compose
+
 Use [following instructions](https://docs.docker.com/compose/install/#install-compose) and install Docker compose at `/opt/bin/docker-compose`
 
 ### Configure and start services
+
 ```bash
 
 # Clone this repo
@@ -86,8 +96,9 @@ docker-compose up -d
 # Generate Traefik configs
 # Make sure DNS entries exist!
 source ./setup/traefik/00-traefik.sh
-source ./setup/traefik/10-kh-frontend.sh
-source ./setup/traefik/10-kh-frontend-beta.sh
+source ./setup/traefik/10-kh-common-frontend.sh
+source ./setup/traefik/10-kh-demo-frontend.sh
+source ./setup/traefik/10-kh-beta-frontend.sh
+source ./setup/traefik/10-kh-prod-frontend.sh
 source ./setup/traefik/10-maintenance.sh
 ```
-

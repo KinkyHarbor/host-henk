@@ -1,12 +1,12 @@
-version: '3.7'
+version: "3.7"
 
 # #################################################################
 # #                            SERVICES                           #
 # #################################################################
 services:
-# =========================
-# =        TRAEFIK        =
-# =========================
+  # =========================
+  # =        TRAEFIK        =
+  # =========================
   traefik:
     image: traefik:latest
     container_name: traefik
@@ -37,9 +37,9 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
-# =========================
-# =     AUTO-UPDATER      =
-# =========================
+  # =========================
+  # =     AUTO-UPDATER      =
+  # =========================
   watchtower:
     image: containrrr/watchtower:latest
     container_name: watchtower
@@ -50,12 +50,12 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
-# =========================
-# =      KINKY HARBOR     =
-# =========================
-  kh-frontend:
-    image: kinkyharbor/kinkyharbor-frontend-nuxt
-    container_name: kh-frontend
+  # =========================
+  # =  KINKY HARBOR: DEMO   =
+  # =========================
+  kh-demo-frontend:
+    image: kinkyharbor/kinkyharbor-frontend-nuxt:latest
+    container_name: kh-demo-frontend
     restart: always
     networks:
       - traefik
@@ -66,9 +66,26 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
 
-# =========================
-# =      MAINTENANCE      =
-# =========================
+  kh-demo-backend:
+    image: kinkyharbor/kinkyharbor-backend-drf:latest
+    container_name: kh-demo-backend
+    restart: always
+    networks:
+      - traefik
+    environment:
+      - "TZ=${DEFAULT_TIMEZONE}"
+      - "DEMO=True"
+      - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
+      - "SECRET_KEY=${KH_DEMO_SECRET_KEY}"
+      - "ALLOWED_HOSTS=https://demo-api.${DEFAULT_DOMAIN}"
+      - "CORS=https://demo.${DEFAULT_DOMAIN}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+
+  # =========================
+  # =      MAINTENANCE      =
+  # =========================
   maintenance:
     image: everydayhero/maintenance:latest
     container_name: maintenance
@@ -95,4 +112,3 @@ volumes:
 networks:
   traefik:
     name: traefik
-

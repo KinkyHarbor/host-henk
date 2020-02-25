@@ -10,6 +10,10 @@
 !/README.md
 
 !/conf
+!/conf/kh-demo/
+!/conf/kh-demo/jwt-keys/
+!/conf/kh-demo/jwt-keys/.gitkeep
+
 !/conf/maintenance/
 !/conf/maintenance/503.html
 

@@ -75,8 +75,6 @@ services:
       - kh-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
-      - "JWT_KEY_PRIVATE=${KH_DEMO_JWT_KEY_PRIVATE}"
-      - "JWT_KEY_PUBLIC=${KH_DEMO_JWT_KEY_PUBLIC}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:
       - "./conf/kh-demo/jwt-keys:/app/jwt-keys"

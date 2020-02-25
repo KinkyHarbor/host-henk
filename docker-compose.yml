@@ -67,21 +67,29 @@ services:
       - "traefik.docker.network=traefik"
 
   kh-demo-backend:
-    image: kinkyharbor/kinkyharbor-backend-drf:latest
+    image: kinkyharbor/kinkyharbor-backend-fastapi:latest
     container_name: kh-demo-backend
     restart: always
     networks:
       - traefik
+      - kh-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
-      - "DEMO=True"
-      - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
-      - "SECRET_KEY=${KH_DEMO_SECRET_KEY}"
-      - "ALLOWED_HOSTS=https://demo-api.${DEFAULT_DOMAIN}"
-      - "CORS=https://demo.${DEFAULT_DOMAIN}"
+      - "JWT_KEY_PRIVATE=${KH_DEMO_JWT_KEY_PRIVATE}"
+      - "JWT_KEY_PUBLIC=${KH_DEMO_JWT_KEY_PUBLIC}"
+      - "MONGO_HOST=kh-demo-mongo"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
+
+  hk-demo-mongo:
+    image: mongo
+    container_name: kh-demo-mongo
+    restart: always
+    networks:
+      - kh-backend
+    environment:
+      - "TZ=${DEFAULT_TIMEZONE}"
 
   # =========================
   # =      MAINTENANCE      =
@@ -112,3 +120,6 @@ volumes:
 networks:
   traefik:
     name: traefik
+
+  kh-backend:
+    name: kh-backend

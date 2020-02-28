@@ -14,7 +14,7 @@ http:
     KHProdFrontend:
       entryPoints: ["websecure"]
       rule: Host(\`${DEFAULT_DOMAIN:?}\`)
-      middlewares: ["KHRedirectToDemo"]
+      middlewares: ["KHFrontendRedirectToDemo"]
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
@@ -22,7 +22,7 @@ http:
     KHProdFrontendBE:
       entryPoints: ["websecure"]
       rule: Host(\`${DOMAIN_BE:?}\`)
-      middlewares: ["KHRedirectToDemo"]
+      middlewares: ["KHFrontendRedirectToDemo"]
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
@@ -30,7 +30,7 @@ http:
     KHProdFrontendNL:
       entryPoints: ["websecure"]
       rule: Host(\`${DOMAIN_NL:?}\`)
-      middlewares: ["KHRedirectToDemo"]
+      middlewares: ["KHFrontendRedirectToDemo"]
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls

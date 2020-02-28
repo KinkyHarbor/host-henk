@@ -18,4 +18,20 @@ http:
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
+
+    KHProdFrontendBE:
+      entryPoints: ["websecure"]
+      rule: Host(\`${DOMAIN_BE:?}\`)
+      middlewares: ["KHRedirectToDemo"]
+      service: kh-demo-frontend-${HOSTNAME:?}@docker
+      tls:
+        certResolver: le-tls
+
+    KHProdFrontendNL:
+      entryPoints: ["websecure"]
+      rule: Host(\`${DOMAIN_NL:?}\`)
+      middlewares: ["KHRedirectToDemo"]
+      service: kh-demo-frontend-${HOSTNAME:?}@docker
+      tls:
+        certResolver: le-tls
 EOF

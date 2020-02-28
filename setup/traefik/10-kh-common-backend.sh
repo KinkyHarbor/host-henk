@@ -7,12 +7,12 @@ TRAEFIK_DIR=${HOME}/henk/conf/traefik
 # Load env
 source "${ENV_FILE}"
 
-# Kinky Harbor: Frontend
-tee ${TRAEFIK_DIR:?}/kh-common-frontend.yml <<EOF
+# Kinky Harbor: Backend
+tee ${TRAEFIK_DIR:?}/kh-common-backend.yml <<EOF
 http:
   middlewares:
-    KHFrontendRedirectToDemo:
+    KHBackendRedirectToDemo:
       redirectRegex:
         regex: "^https?://(.*\\\\.)?kinkyharbor\\\\.(.*?)/(.*)"
-        replacement: "https://demo.kinkyharbor.\${2}/\${3}"
+        replacement: "https://demo-api.kinkyharbor.\${2}/\${3}"
 EOF

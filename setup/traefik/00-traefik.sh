@@ -48,6 +48,26 @@ http:
         - SecureHttps
       tls:
         certResolver: le-tls
+
+    APIBE:
+      entryPoints: ["websecure"]
+      rule: Host(\`traefik-${HOSTNAME:?}.${DOMAIN_BE:?}\`)
+      service: api@internal
+      middlewares:
+        - TraefikDashboardAuth
+        - SecureHttps
+      tls:
+        certResolver: le-tls
+
+    APINL:
+      entryPoints: ["websecure"]
+      rule: Host(\`traefik-${HOSTNAME:?}.${DOMAIN_NL:?}\`)
+      service: api@internal
+      middlewares:
+        - TraefikDashboardAuth
+        - SecureHttps
+      tls:
+        certResolver: le-tls
 EOF
 
 # Traefik: Ping
@@ -57,6 +77,20 @@ http:
     Ping:
       entryPoints: ["websecure"]
       rule: Host(\`ping-${HOSTNAME:?}.${DEFAULT_DOMAIN:?}\`)
+      service: ping@internal
+      tls:
+        certResolver: le-tls
+
+    PingBE:
+      entryPoints: ["websecure"]
+      rule: Host(\`ping-${HOSTNAME:?}.${DOMAIN_BE:?}\`)
+      service: ping@internal
+      tls:
+        certResolver: le-tls
+
+    PingNL:
+      entryPoints: ["websecure"]
+      rule: Host(\`ping-${HOSTNAME:?}.${DOMAIN_NL:?}\`)
       service: ping@internal
       tls:
         certResolver: le-tls

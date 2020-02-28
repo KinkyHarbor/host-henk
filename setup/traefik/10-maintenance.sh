@@ -17,4 +17,18 @@ http:
       service: maintenance-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
+    
+    Maintenance:
+      entryPoints: ["websecure"]
+      rule: Host(\`maintenance.${DOMAIN_BE:?}\`)
+      service: maintenance-${HOSTNAME:?}@docker
+      tls:
+        certResolver: le-tls
+
+    Maintenance:
+      entryPoints: ["websecure"]
+      rule: Host(\`maintenance.${DOMAIN_NL:?}\`)
+      service: maintenance-${HOSTNAME:?}@docker
+      tls:
+        certResolver: le-tls
 EOF

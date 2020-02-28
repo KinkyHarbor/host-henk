@@ -106,6 +106,7 @@ source ./setup/traefik/10-kh-common-backend.sh
 source ./setup/traefik/10-kh-common-frontend.sh
 source ./setup/traefik/10-kh-demo-backend.sh
 source ./setup/traefik/10-kh-demo-frontend.sh
+source ./setup/traefik/10-kh-prod-backend.sh
 source ./setup/traefik/10-kh-prod-frontend.sh
 source ./setup/traefik/10-maintenance.sh
 ```

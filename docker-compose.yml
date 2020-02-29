@@ -75,6 +75,7 @@ services:
       - kh-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
+      - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:
       - "./conf/kh-demo/jwt-keys:/jwt-keys"

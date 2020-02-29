@@ -70,6 +70,8 @@ services:
     image: kinkyharbor/kinkyharbor-backend-fastapi:latest
     container_name: kh-demo-backend
     restart: always
+    depends_on:
+      - hk-demo-mongo
     networks:
       - traefik
       - kh-backend

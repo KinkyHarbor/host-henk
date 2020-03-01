@@ -62,6 +62,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "NUXT_HOST=0.0.0.0"
+      - "API_URL=https://demo-api.${DOMAIN_BE}"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
@@ -77,7 +78,7 @@ services:
       - kh-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
-      - "FRONTEND_URL=https://kinkyharbor.be"
+      - "FRONTEND_URL=https://demo.${DOMAIN_BE}"
       - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:

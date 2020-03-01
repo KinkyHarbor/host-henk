@@ -77,6 +77,7 @@ services:
       - kh-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
+      - "FRONTEND_URL=https://kinkyharbor.be"
       - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:

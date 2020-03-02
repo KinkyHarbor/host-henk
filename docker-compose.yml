@@ -79,7 +79,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
-      - "CORS=${KH_DEMO_CORS}"
+      - "CORS=https://demo.${DEFAULT_DOMAIN};https://demo.${DOMAIN_BE};https://demo.${DOMAIN_NL}"
       - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"

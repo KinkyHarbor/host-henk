@@ -80,6 +80,10 @@ services:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DOMAIN_BE}"
       - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
+      - "EMAIL_HOSTNAME=${MAIL_HOST}"
+      - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_USERNAME=${MAIL_USER}"
+      - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:
       - "./conf/kh-demo/jwt-keys:/jwt-keys"

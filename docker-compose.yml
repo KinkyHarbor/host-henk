@@ -62,7 +62,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "NUXT_HOST=0.0.0.0"
-      - "API_URL=https://demo-api.${DOMAIN_BE}"
+      - "API_URL=https://demo-api.${DEFAULT_DOMAIN}"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"

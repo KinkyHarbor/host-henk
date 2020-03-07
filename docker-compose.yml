@@ -61,6 +61,7 @@ services:
       - traefik
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
+      - "DEMO=True"
       - "NUXT_HOST=0.0.0.0"
       - "API_URL=https://demo-api.${DEFAULT_DOMAIN}"
     labels:

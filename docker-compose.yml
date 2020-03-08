@@ -93,7 +93,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
 
-  hk-demo-mongo:
+  kh-demo-mongo:
     image: mongo
     container_name: kh-demo-mongo
     restart: always

@@ -62,7 +62,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "DEMO=True"
-      - "NUXT_HOST=0.0.0.0"
+      - "KH_BASE_URL=https://demo.${DEFAULT_DOMAIN}"
       - "API_URL=https://demo-api.${DEFAULT_DOMAIN}"
     labels:
       - "traefik.enable=true"

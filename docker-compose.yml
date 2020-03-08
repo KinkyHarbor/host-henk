@@ -64,6 +64,8 @@ services:
       - "DEMO=True"
       - "KH_BASE_URL=https://demo.${DEFAULT_DOMAIN}"
       - "API_URL=https://demo-api.${DEFAULT_DOMAIN}"
+      - "DOMAIN_ENGLISH=demo.${DEFAULT_DOMAIN}"
+      - "DOMAIN_DUTCH=demo.${DOMAIN_BE}"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"

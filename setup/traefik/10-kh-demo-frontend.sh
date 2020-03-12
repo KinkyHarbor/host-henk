@@ -17,18 +17,4 @@ http:
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls
-
-    KHDemoFrontendBE:
-      entryPoints: ["websecure"]
-      rule: Host(\`demo.${DOMAIN_BE:?}\`)
-      service: kh-demo-frontend-${HOSTNAME:?}@docker
-      tls:
-        certResolver: le-tls
-
-    KHDemoFrontendNL:
-      entryPoints: ["websecure"]
-      rule: Host(\`demo.${DOMAIN_NL:?}\`)
-      service: kh-demo-frontend-${HOSTNAME:?}@docker
-      tls:
-        certResolver: le-tls
 EOF

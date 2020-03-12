@@ -1,0 +1,5 @@
+[Unit]
+Description=Prune unused Docker resources
+
+[Service]
+ExecStart=/usr/bin/docker system prune -f

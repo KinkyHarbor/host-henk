@@ -31,3 +31,7 @@
 !/setup/traefik/10-kh-prod-backend.sh
 !/setup/traefik/10-kh-prod-frontend.sh
 !/setup/traefik/10-maintenance.sh
+
+!/systemd/
+!/systemd/docker-prune.service
+!/systemd/docker-prune.timer

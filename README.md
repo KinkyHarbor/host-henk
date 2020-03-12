@@ -90,6 +90,11 @@ cd ~/henk
 cp template.env .env
 vim .env
 
+# Setup systemd
+sudo cp ./systemd/* /etc/systemd/system/
+sudo systemctl enable docker-prune.timer
+sudo systemctl start docker-prune.timer
+
 # Generate keys for Kinky Harbor
 pushd conf/kh-demo/jwt-keys
 openssl ecparam -genkey -name secp521r1 -noout -out private.pem

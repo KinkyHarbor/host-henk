@@ -19,10 +19,10 @@ http:
     KHFrontendRedirectToLangEN:
       redirectRegex:
         regex: "^https?://(.*\\\\.)?kinkyharbor\\\\..*?/(.*)"
-        replacement: "https://\${DEFAULT_DOMAIN}/\${2}"
+        replacement: "https://${DEFAULT_DOMAIN}/\${2}"
 
     KHFrontendRedirectToLangNL:
       redirectRegex:
         regex: "^https?://(.*\\\\.)?kinkyharbor\\\\..*?/(.*)"
-        replacement: "https://\${DEFAULT_DOMAIN}/nl/\${2}"
+        replacement: "https://${DEFAULT_DOMAIN}/nl/\${2}"
 EOF

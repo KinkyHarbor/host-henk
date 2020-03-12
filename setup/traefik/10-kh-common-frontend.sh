@@ -28,7 +28,8 @@ http:
 
     KHFrontendMaintenanceOnBadGateway:
       errors:
-        - "502"
-      service: maintenance-${HOSTNAME:?}@docker
-      query: "/"
+        status:
+          - "502"
+        service: maintenance-${HOSTNAME:?}@docker
+        query: "/"
 EOF

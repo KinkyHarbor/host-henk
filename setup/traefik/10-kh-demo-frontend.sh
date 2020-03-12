@@ -14,6 +14,7 @@ http:
     KHDemoFrontend:
       entryPoints: ["websecure"]
       rule: Host(\`demo.${DEFAULT_DOMAIN:?}\`)
+      middlewares: ["KHFrontendMaintenanceOnBadGateway"]
       service: kh-demo-frontend-${HOSTNAME:?}@docker
       tls:
         certResolver: le-tls

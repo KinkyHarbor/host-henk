@@ -25,4 +25,10 @@ http:
       redirectRegex:
         regex: "^https?://(.*\\\\.)?kinkyharbor\\\\..*?/(.*)"
         replacement: "https://${DEFAULT_DOMAIN}/nl/\${2}"
+
+    KHFrontendMaintenanceOnBadGateway:
+      errors:
+        - "502"
+      service: maintenance-${HOSTNAME:?}@docker
+      query: "/"
 EOF

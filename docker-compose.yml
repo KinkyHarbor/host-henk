@@ -64,8 +64,6 @@ services:
       - "DEMO=True"
       - "KH_BASE_URL=https://demo.${DEFAULT_DOMAIN}"
       - "API_URL=https://demo-api.${DEFAULT_DOMAIN}"
-      - "DOMAIN_ENGLISH=demo.${DEFAULT_DOMAIN}"
-      - "DOMAIN_DUTCH=demo.${DOMAIN_BE}"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
@@ -82,7 +80,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
-      - "CORS=https://demo.${DEFAULT_DOMAIN};https://demo.${DOMAIN_BE};https://demo.${DOMAIN_NL}"
+      - "CORS=https://demo.${DEFAULT_DOMAIN}"
       - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"

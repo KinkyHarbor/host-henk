@@ -13,6 +13,6 @@ http:
   middlewares:
     KHBackendRedirectToDemo:
       redirectRegex:
-        regex: "^https?://(.*\\\\.)?kinkyharbor\\\\.(.*?)/(.*)"
-        replacement: "https://demo-api.kinkyharbor.\${2}/\${3}"
+        regex: "^https?://(.*\\\\.)?kinkyharbor\\\\..*?/(.*)"
+        replacement: "https://demo-api.${DEFAULT_DOMAIN}/\${2}"
 EOF

@@ -51,6 +51,58 @@ services:
       - "TZ=${DEFAULT_TIMEZONE}"
 
   # =========================
+  # =  KINKY HARBOR: TEST   =
+  # =========================
+  kh-test-frontend:
+    image: kinkyharbor/kinkyharbor-frontend-nuxt:latest
+    container_name: kh-test-frontend
+    restart: always
+    networks:
+      - traefik
+    environment:
+      - "TZ=${DEFAULT_TIMEZONE}"
+      - "DEMO=True"
+      - "KH_BASE_URL=https://test.${DEFAULT_DOMAIN}"
+      - "API_URL=https://test-api.${DEFAULT_DOMAIN}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+
+  kh-test-backend:
+    image: kinkyharbor/kinkyharbor-backend-fastapi:latest
+    container_name: kh-test-backend
+    restart: always
+    depends_on:
+      - kh-test-mongo
+    networks:
+      - traefik
+      - kh-backend
+    environment:
+      - "TZ=${DEFAULT_TIMEZONE}"
+      - "FRONTEND_URL=https://test.${DEFAULT_DOMAIN}"
+      - "CORS=https://test.${DEFAULT_DOMAIN}"
+      - "EMAIL_FROM_ADDRESS=no-reply@${DEFAULT_DOMAIN}"
+      - "EMAIL_HOSTNAME=${MAIL_HOST}"
+      - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_USERNAME=${MAIL_USER}"
+      - "EMAIL_PASSWORD=${MAIL_PASS}"
+      - "MONGO_HOST=kh-test-mongo"
+    volumes:
+      - "./conf/kh-test/jwt-keys:/jwt-keys"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+
+  kh-test-mongo:
+    image: mongo
+    container_name: kh-test-mongo
+    restart: always
+    networks:
+      - kh-backend
+    environment:
+      - "TZ=${DEFAULT_TIMEZONE}"
+
+  # =========================
   # =  KINKY HARBOR: DEMO   =
   # =========================
   kh-demo-frontend:
@@ -69,7 +121,7 @@ services:
       - "traefik.docker.network=traefik"
 
   kh-demo-backend:
-    image: kinkyharbor/kinkyharbor-backend-fastapi:latest
+    image: kinkyharbor/kinkyharbor-backend-fastapi:stable
     container_name: kh-demo-backend
     restart: always
     depends_on:

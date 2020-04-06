@@ -88,7 +88,7 @@ services:
       - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-test-mongo"
     volumes:
-      - "./conf/kh-test/jwt-keys:/jwt-keys"
+      - "./conf/kh-test/jwt-keys:/app/jwt-keys"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
@@ -140,7 +140,7 @@ services:
       - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-demo-mongo"
     volumes:
-      - "./conf/kh-demo/jwt-keys:/jwt-keys"
+      - "./conf/kh-demo/jwt-keys:/app/jwt-keys"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"

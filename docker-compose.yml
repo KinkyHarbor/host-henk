@@ -76,7 +76,7 @@ services:
       - kh-test-mongo
     networks:
       - traefik
-      - kh-backend
+      - kh-test-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://test.${DEFAULT_DOMAIN}"
@@ -98,9 +98,34 @@ services:
     container_name: kh-test-mongo
     restart: always
     networks:
-      - kh-backend
+      - kh-test-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
+
+  kh-test-rabbitmq:
+    container_name: kh-test-rabbitmq
+    image: rabbitmq:3
+
+  kh-test-scheduler:
+    image: kinkyharbor/kinkyharbor-backend-scheduler:latest
+    container_name: kh-test-scheduler
+    networks:
+      - kh-test-backend
+    environment:
+      - "CELERY_RABBITMQ_HOST=kh-test-rabbitmq"
+    depends_on:
+      - kh-test-rabbitmq
+
+  kh-test-worker:
+    image: kinkyharbor/kinkyharbor-backend-worker:latest
+    container_name: kh-test-worker
+    networks:
+      - kh-test-backend
+    environment:
+      - "CELERY_RABBITMQ_HOST=kh-test-rabbitmq"
+      - "MONGO_HOST=kh-test-mongo"
+    depends_on:
+      - kh-test-rabbitmq
 
   # =========================
   # =  KINKY HARBOR: DEMO   =

@@ -153,7 +153,7 @@ services:
       - kh-demo-mongo
     networks:
       - traefik
-      - kh-backend
+      - kh-demo-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
@@ -175,7 +175,7 @@ services:
     container_name: kh-demo-mongo
     restart: always
     networks:
-      - kh-backend
+      - kh-demo-backend
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
@@ -209,5 +209,8 @@ networks:
   traefik:
     name: traefik
 
-  kh-backend:
-    name: kh-backend
+  kh-test-backend:
+    name: kh-test-backend
+
+  kh-demo-backend:
+    name: kh-demo-backend

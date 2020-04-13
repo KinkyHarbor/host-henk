@@ -105,6 +105,8 @@ services:
   kh-test-rabbitmq:
     container_name: kh-test-rabbitmq
     image: rabbitmq:3
+    networks:
+      - kh-test-backend
 
   kh-test-scheduler:
     image: kinkyharbor/kinkyharbor-backend-scheduler:latest

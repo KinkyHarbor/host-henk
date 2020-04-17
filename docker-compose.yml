@@ -179,6 +179,33 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
+  kh-demo-rabbitmq:
+    container_name: kh-demo-rabbitmq
+    image: rabbitmq:3
+    networks:
+      - kh-demo-backend
+
+  kh-demo-scheduler:
+    image: kinkyharbor/kinkyharbor-backend-scheduler:latest
+    container_name: kh-demo-scheduler
+    networks:
+      - kh-demo-backend
+    environment:
+      - "CELERY_RABBITMQ_HOST=kh-demo-rabbitmq"
+    depends_on:
+      - kh-demo-rabbitmq
+
+  kh-demo-worker:
+    image: kinkyharbor/kinkyharbor-backend-worker:latest
+    container_name: kh-demo-worker
+    networks:
+      - kh-demo-backend
+    environment:
+      - "CELERY_RABBITMQ_HOST=kh-demo-rabbitmq"
+      - "MONGO_HOST=kh-demo-mongo"
+    depends_on:
+      - kh-demo-rabbitmq
+
   # =========================
   # =      MAINTENANCE      =
   # =========================

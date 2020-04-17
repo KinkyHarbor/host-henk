@@ -54,7 +54,7 @@ services:
   # =  KINKY HARBOR: TEST   =
   # =========================
   kh-test-frontend:
-    image: kinkyharbor/kinkyharbor-frontend-nuxt:latest
+    image: kinkyharbor/kinkyharbor-frontend-nuxt:precompiled-test
     container_name: kh-test-frontend
     restart: always
     networks:
@@ -133,7 +133,7 @@ services:
   # =  KINKY HARBOR: DEMO   =
   # =========================
   kh-demo-frontend:
-    image: kinkyharbor/kinkyharbor-frontend-nuxt:latest
+    image: kinkyharbor/kinkyharbor-frontend-nuxt:precompiled-demo
     container_name: kh-demo-frontend
     restart: always
     networks:

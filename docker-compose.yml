@@ -80,6 +80,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://test.${DEFAULT_DOMAIN}"
+      - "CORS=https://test.${DEFAULT_DOMAIN}"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"
       - "EMAIL_USERNAME=${MAIL_USER}"
@@ -157,6 +158,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
+      - "CORS=https://demo.${DEFAULT_DOMAIN}"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"
       - "EMAIL_USERNAME=${MAIL_USER}"

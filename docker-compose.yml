@@ -78,6 +78,7 @@ services:
       - traefik
       - kh-test-backend
     environment:
+      - "DEBUG=True"
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://test.${DEFAULT_DOMAIN}"
       - "CORS=[\"https://test.${DEFAULT_DOMAIN}\"]"

@@ -7,7 +7,7 @@ TRAEFIK_DIR=${HOME}/henk/conf/traefik
 # Load env
 source "${ENV_FILE}"
 
-# Kinky Harbor: Frontend
+# Kinky Harbor: Backend
 tee ${TRAEFIK_DIR:?}/kh-prod-backend.yml <<EOF
 http:
   routers:

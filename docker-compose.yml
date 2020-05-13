@@ -103,11 +103,40 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
-  kh-test-rabbitmq:
-    container_name: kh-test-rabbitmq
-    image: rabbitmq:3
+  kh-test-mongo-web:
+    container_name: kh-test-mongo-express
+    image: mongo-express
+    environment:
+      - "ME_CONFIG_BASICAUTH_USERNAME=${KH_TEST_MONGO_USER}"
+      - "ME_CONFIG_BASICAUTH_PASSWORD=${KH_TEST_MONGO_PASS}"
+      - "ME_CONFIG_MONGODB_SERVER=kh-test-mongo"
+      - "TZ=${DEFAULT_TIMEZONE}"
+    depends_on:
+      - kh-test-mongo
     networks:
       - kh-test-backend
+      - traefik
+
+  kh-test-rabbitmq:
+    container_name: kh-test-rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      - kh-test-backend
+
+  kh-test-flower:
+    container_name: kh-test-flower
+    image: mher/flower
+    environment:
+      - "FLOWER_BASIC_AUTH=${KH_TEST_FLOWER_USER}:${KH_TEST_FLOWER_PASS}"
+      - "TZ=${DEFAULT_TIMEZONE}"
+    command:
+      - "--broker=amqp://guest@harbor-rabbitmq:5672//"
+      - "--broker_api=http://guest:guest@harbor-rabbitmq:15672/api/"
+    depends_on:
+      - harbor-rabbitmq
+    networks:
+      - kh-test-backend
+      - traefik
 
   kh-test-scheduler:
     image: kinkyharbor/kinkyharbor-backend-scheduler:latest

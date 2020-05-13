@@ -31,6 +31,7 @@
 !/setup/traefik/10-kh-prod-backend.sh
 !/setup/traefik/10-kh-prod-frontend.sh
 !/setup/traefik/10-kh-test-backend.sh
+!/setup/traefik/10-kh-test-debug.sh
 !/setup/traefik/10-kh-test-frontend.sh
 !/setup/traefik/10-maintenance.sh
 

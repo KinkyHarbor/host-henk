@@ -103,7 +103,7 @@ services:
     environment:
       - "TZ=${DEFAULT_TIMEZONE}"
 
-  kh-test-mongo-web:
+  kh-test-mongo-express:
     container_name: kh-test-mongo-express
     image: mongo-express
     environment:

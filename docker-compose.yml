@@ -133,8 +133,8 @@ services:
       - "FLOWER_BASIC_AUTH=${KH_TEST_FLOWER_USER}:${KH_TEST_FLOWER_PASS}"
       - "TZ=${DEFAULT_TIMEZONE}"
     command:
-      - "--broker=amqp://guest@harbor-rabbitmq:5672//"
-      - "--broker_api=http://guest:guest@harbor-rabbitmq:15672/api/"
+      - "--broker=amqp://guest@kh-test-rabbitmq:5672//"
+      - "--broker_api=http://guest:guest@kh-test-rabbitmq:15672/api/"
     depends_on:
       - kh-test-rabbitmq
     networks:

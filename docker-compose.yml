@@ -133,7 +133,7 @@ services:
       - "--broker=amqp://guest@harbor-rabbitmq:5672//"
       - "--broker_api=http://guest:guest@harbor-rabbitmq:15672/api/"
     depends_on:
-      - harbor-rabbitmq
+      - kh-test-rabbitmq
     networks:
       - kh-test-backend
       - traefik

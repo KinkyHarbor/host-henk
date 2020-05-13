@@ -87,6 +87,7 @@ services:
       - "EMAIL_USERNAME=${MAIL_USER}"
       - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-test-mongo"
+      - "CELERY_RABBITMQ_HOST=kh-test-rabbitmq"
     volumes:
       - "./conf/kh-test/jwt-keys:/app/jwt-keys"
     labels:
@@ -165,6 +166,7 @@ services:
       - "EMAIL_USERNAME=${MAIL_USER}"
       - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-demo-mongo"
+      - "CELERY_RABBITMQ_HOST=kh-demo-rabbitmq"
     volumes:
       - "./conf/kh-demo/jwt-keys:/app/jwt-keys"
     labels:

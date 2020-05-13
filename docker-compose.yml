@@ -82,10 +82,6 @@ services:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://test.${DEFAULT_DOMAIN}"
       - "CORS=[\"https://test.${DEFAULT_DOMAIN}\"]"
-      - "EMAIL_HOSTNAME=${MAIL_HOST}"
-      - "EMAIL_PORT=${MAIL_PORT}"
-      - "EMAIL_USERNAME=${MAIL_USER}"
-      - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-test-mongo"
       - "CELERY_RABBITMQ_HOST=kh-test-rabbitmq"
     volumes:
@@ -162,6 +158,10 @@ services:
     environment:
       - "CELERY_RABBITMQ_HOST=kh-test-rabbitmq"
       - "MONGO_HOST=kh-test-mongo"
+      - "EMAIL_HOSTNAME=${MAIL_HOST}"
+      - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_USERNAME=${MAIL_USER}"
+      - "EMAIL_PASSWORD=${MAIL_PASS}"
     depends_on:
       - kh-test-rabbitmq
 
@@ -196,10 +196,6 @@ services:
       - "TZ=${DEFAULT_TIMEZONE}"
       - "FRONTEND_URL=https://demo.${DEFAULT_DOMAIN}"
       - "CORS=[\"https://demo.${DEFAULT_DOMAIN}\"]"
-      - "EMAIL_HOSTNAME=${MAIL_HOST}"
-      - "EMAIL_PORT=${MAIL_PORT}"
-      - "EMAIL_USERNAME=${MAIL_USER}"
-      - "EMAIL_PASSWORD=${MAIL_PASS}"
       - "MONGO_HOST=kh-demo-mongo"
       - "CELERY_RABBITMQ_HOST=kh-demo-rabbitmq"
     volumes:
@@ -241,6 +237,10 @@ services:
     environment:
       - "CELERY_RABBITMQ_HOST=kh-demo-rabbitmq"
       - "MONGO_HOST=kh-demo-mongo"
+      - "EMAIL_HOSTNAME=${MAIL_HOST}"
+      - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_USERNAME=${MAIL_USER}"
+      - "EMAIL_PASSWORD=${MAIL_PASS}"
     depends_on:
       - kh-demo-rabbitmq
 

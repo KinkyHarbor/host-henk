@@ -116,6 +116,9 @@ services:
     networks:
       - kh-test-backend
       - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
 
   kh-test-rabbitmq:
     container_name: kh-test-rabbitmq
@@ -137,6 +140,9 @@ services:
     networks:
       - kh-test-backend
       - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
 
   kh-test-scheduler:
     image: kinkyharbor/kinkyharbor-backend-scheduler:latest

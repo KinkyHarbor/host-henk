@@ -160,6 +160,7 @@ services:
       - "MONGO_HOST=kh-test-mongo"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_SECURITY=tls_ssl"
       - "EMAIL_USERNAME=${MAIL_USER}"
       - "EMAIL_PASSWORD=${MAIL_PASS}"
     depends_on:
@@ -239,6 +240,7 @@ services:
       - "MONGO_HOST=kh-demo-mongo"
       - "EMAIL_HOSTNAME=${MAIL_HOST}"
       - "EMAIL_PORT=${MAIL_PORT}"
+      - "EMAIL_SECURITY=tls_ssl"
       - "EMAIL_USERNAME=${MAIL_USER}"
       - "EMAIL_PASSWORD=${MAIL_PASS}"
     depends_on:

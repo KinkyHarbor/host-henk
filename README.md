@@ -1,3 +1,8 @@
+**I've decided to stop the development of Kinky Harbor.
+  This project has been started as a hobby project.
+  As it was more about improving my Python skills and checking the feasibility,
+  instead of fundamental beliefs, I feel it's better not to commit on this project towards the community.**
+
 # Henk
 
 Our first pirate crew member!
